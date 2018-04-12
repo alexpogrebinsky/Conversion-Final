@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Conversion.Models.ViewModel
+
+@{
+    ViewBag.Title = "ConvertCF";
+}
+<center>
+    @*<h2>Conversion of Celsius and Fehrenheit</h2>*@
+    @using (Html.BeginForm("convertcf", "Home", FormMethod.Post))
+    {
+        <div>
+
+        </div>
+        <div>
+            <p class="italic">@Html.LabelFor(x => x.Input, "temp.")</p>
+            @Html.TextBoxFor(x => x.Input)
+        </div>
+        <div>
+            <br /><br />
+            <p class="italic">@Html.LabelFor(x => x.Option, "convert to ")</p>
+            @Html.DropDownListFor(x => x.Option, new List<SelectListItem>
+{
+new SelectListItem {Text = "Fahrenheit  ", Value = "1"},
+new SelectListItem {Text = "Celsius  ", Value = "2"}
+})
+        </div><br /><br />
+        <div>
+            <button class="button" type="submit" autofocus>convert</button><br /><br />
+        </div>
+    }
+    @if (Model.ShowResult)
+    {<div class="result">
+         <p class="italic">@Model.OptionName : </p><p class="large">@Model.Input = @Model.Result</p>
+        </div>
+    }
+</center>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+

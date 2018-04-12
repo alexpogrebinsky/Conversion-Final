@@ -1,0 +1,40 @@
+﻿@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Conversion.Models.ViewModel
+
+@{
+	ViewBag.Title = "ConvertKP";
+}
+<center>
+	@using (Html.BeginForm("convertkp", "Home", FormMethod.Post))
+	{
+		<div>
+		</div>
+		<div>
+			<p class="italic">
+				@Html.LabelFor(x => x.Input, "weight:")
+			</p>
+			@Html.TextBoxFor(x => x.Input)<br />
+		</div>
+		<div>
+			<p class="italic">
+				@Html.LabelFor(x => x.Option, "convert to ")
+			</p>
+			@Html.DropDownListFor(x => x.Option, new List<SelectListItem>
+{
+new SelectListItem {Text = "Kilograms  ", Value = "1"},
+new SelectListItem {Text = "Pounds  ", Value = "2"}
+})
+		</div>
+		<div>
+			<br />
+			<button class="button" type="submit" autofocus>convert</button><br /><br />
+		</div>
+	}
+	@if (Model.ShowResult)
+	{<div class="result">
+			<p class="italic">@Model.OptionName : </p><p class="large">@Model.Input = @Model.Result</p>
+		</div>
+	}
+</center>
