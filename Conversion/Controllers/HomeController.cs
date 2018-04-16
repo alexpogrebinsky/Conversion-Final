@@ -13,7 +13,7 @@ namespace Conversion.Controllers
        
            public ActionResult ConvertGallons(ViewModel vm)
         {
-            if (vm == null) { return View("convertgallons", new ViewModel { ShowResult = false }); }
+            if (vm == null) { return View("conve rtgallons", new ViewModel { ShowResult = false }); }
 
             if (vm.Option == 1)
             {
@@ -26,10 +26,6 @@ namespace Conversion.Controllers
                 vm.OptionName = "Gallons to Liters";
             }
             vm.ShowResult = true;
-
-            ////not needed, just for an example
-            //ViewData.Add("glosrob-example", "A value goes here!");
-
             return View("convertgallons", vm);
         }
 
@@ -48,10 +44,6 @@ namespace Conversion.Controllers
                 vm.OptionName = "Fahrenheit to Celsius";
             }
             vm.ShowResult = true;
-
-            ////not needed, just for an example
-            //ViewData.Add("glosrob-example", "A value goes here!");
-
             return View("convertcf", vm);
         }
 
@@ -70,19 +62,12 @@ namespace Conversion.Controllers
                 vm.OptionName = "Kilograms to Pounds";
             }
             vm.ShowResult = true;
-
-            ////not needed, just for an example
-            //ViewData.Add("glosrob-example", "A value goes here!");
-
             return View("convertkp", vm);
         }
 
 
         public ActionResult Index()
         {
-
-       
-
 
             return View();
         }
